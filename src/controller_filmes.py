@@ -18,8 +18,9 @@ def recomendar(nome):
     indices_recomendados = score_similaridade.sort_values('score', ascending=False)
     indices_recomendados = indices_recomendados[indices_recomendados['score'] > 0.5][1:6].index
     nomes = filmes_df['name'].iloc[indices_recomendados]
+    posters = filmes_df['poster'].iloc[indices_recomendados]
 
-    return nomes
+    return nomes, posters
 
 print(recomendar("The Dark Knight"))
 
